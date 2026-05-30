@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+
+  <section class="formulario">
+    <form action="/tarefas" method="POST">
+      <input type="text" name="titulo" placeholder="Nova tarefa..." required autocomplete="off">
+      <button type="submit">Adicionar</button>
+    </form>
+  </section>
+
+  <!-- Filtros -->
+  <nav class="filtros">
+    <a href="/?filtro=todas"     class="{% if filtro_ativo == 'todas'     %}ativo{% endif %}">Todas</a>
+    <a href="/?filtro=pendentes" class="{% if filtro_ativo == 'pendentes' %}ativo{% endif %}">Pendentes</a>
+    <a href="/?filtro=concluidas"class="{% if filtro_ativo == 'concluidas'%}ativo{% endif %}">Concluídas</a>
+  </nav>
+
+  <section class="contadores">
+    <span>Exibindo: {{ tarefas | length }} tarefa(s)</span>
+  </section>
+
+  <section class="lista">
+    {% if tarefas %}
+      {% for tarefa in tarefas %}
+        <div class="tarefa {% if tarefa.concluida %}concluida{% endif %}">
+          <div class="tarefa-info">
+            <span class="titulo">{{ tarefa.titulo }}</span>
+            <span class="data">{{ tarefa.data }}</span>
+          </div>
+          <div class="tarefa-acoes">
+            <form action="/tarefas/{{ tarefa.id }}/concluir" method="POST">
+              <button type="submit" class="btn-concluir">
+                {% if tarefa.concluida %}Reabrir{% else %}Concluir{% endif %}
+              </button>
+            </form>
+            <form action="/tarefas/{{ tarefa.id }}/deletar" method="POST">
+              <button type="submit" class="btn-deletar">Deletar</button>
+            </form>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p class="vazio">Nenhuma tarefa aqui.</p>
+    {% endif %}
+  </section>
+
+{% endblock %}

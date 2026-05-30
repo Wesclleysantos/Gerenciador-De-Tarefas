@@ -1,0 +1,208 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f0f2f5;
+  color: #1a1a1a;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+/* ── Layout central ── */
+header, main {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* ── Cabeçalho ── */
+header {
+  margin-bottom: 1.5rem;
+}
+
+header h1 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+header p {
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 4px;
+}
+
+/* ── Formulário ── */
+.formulario {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #e8e8e8;
+}
+
+.formulario form {
+  display: flex;
+  gap: 8px;
+}
+
+.formulario input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.formulario input:focus {
+  border-color: #555;
+}
+
+.formulario button {
+  padding: 10px 20px;
+  background: #1a1a1a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.formulario button:hover {
+  background: #333;
+}
+
+/* ── Filtros ── */
+.filtros {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 1rem;
+}
+
+.filtros a {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  color: #666;
+  background: white;
+  border: 1px solid #e0e0e0;
+  transition: all 0.15s;
+}
+
+.filtros a:hover {
+  border-color: #aaa;
+  color: #333;
+}
+
+.filtros a.ativo {
+  background: #1a1a1a;
+  color: white;
+  border-color: #1a1a1a;
+}
+
+/* ── Contadores ── */
+.contadores {
+  font-size: 0.8rem;
+  color: #aaa;
+  margin-bottom: 0.75rem;
+  padding-left: 4px;
+}
+
+/* ── Tarefas ── */
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tarefa {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  padding: 14px 16px;
+  transition: box-shadow 0.15s;
+}
+
+.tarefa:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.tarefa.concluida {
+  background: #fafafa;
+  border-color: #f0f0f0;
+}
+
+.tarefa.concluida .titulo {
+  text-decoration: line-through;
+  color: #bbb;
+}
+
+.tarefa-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
+}
+
+.titulo {
+  font-size: 0.95rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.data {
+  font-size: 0.75rem;
+  color: #bbb;
+}
+
+/* ── Botões de ação ── */
+.tarefa-acoes {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.tarefa-acoes button {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  border: 1px solid #e0e0e0;
+  background: white;
+  color: #555;
+  transition: all 0.15s;
+}
+
+.btn-concluir:hover {
+  background: #f0faf2;
+  border-color: #81c784;
+  color: #2e7d32;
+}
+
+.btn-deletar:hover {
+  background: #fdf0f0;
+  border-color: #e57373;
+  color: #c62828;
+}
+
+/* ── Vazio ── */
+.vazio {
+  text-align: center;
+  color: #ccc;
+  padding: 3rem 0;
+  font-size: 0.95rem;
+}
